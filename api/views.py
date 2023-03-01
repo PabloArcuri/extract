@@ -26,6 +26,11 @@ class OpsViewSet(viewsets.ModelViewSet):
 class SolicitacaoViewSet(viewsets.ModelViewSet):
     queryset = Solicitacao.objects.all()
     serializer_class = SolicitacaoSerializer
+
+
+class IntegrantesViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = IntegrantesSerializer
     
 
 
