@@ -27,6 +27,7 @@ class OperacaoSerializer(serializers.ModelSerializer):
     criador = CriadorSerializer(many=False, read_only=True)
     
     class Meta:
+        
         model = Operacao
         
         fields = [
