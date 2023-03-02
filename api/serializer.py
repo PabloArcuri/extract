@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class SolicitacaoSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Solicitacao
         fields = '__all__'
@@ -22,8 +23,8 @@ class CriadorSerializer(serializers.ModelSerializer):
 
 class OperacaoSerializer(serializers.ModelSerializer):
     solicitacao = SolicitacaoSerializer(many=True, read_only=True)
-    integrantes = IntegrantesSerializer(many=True, read_only=False)
-    #criador = CriadorSerializer(many=False, read_only=True)
+    integrantes = IntegrantesSerializer(many=True, read_only=True)
+    criador = CriadorSerializer(many=False, read_only=True)
     
     class Meta:
         model = Operacao
