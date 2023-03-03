@@ -15,8 +15,35 @@ class Operacao(models.Model):
 
     def __str__(self):
         return self.nome
+    
 
+class Solicitacao(models.Model):
 
+    tipo_choices = [
+        ('Nuvem', 'Nuvem'),
+        ('Celular', 'Celular'),
+    ]
+    
+    tipo = models.CharField( choices=tipo_choices, max_length=50)
+    operacao = models.ForeignKey(Operacao, on_delete=models.CASCADE, related_name='op_solicitacao')
+    situacao = models.CharField(max_length=50)
+    data_entrada = models.DateField(default=timezone.now)
+    ipl = models.CharField(max_length=50, blank=True, null=True)
+    referencia = models.CharField(max_length=120, blank=True, null=True)
+    Solicitante = models.ForeignKey(User, on_delete=models.CASCADE, related_name='solicitacoes', blank=True, null = True)
+    oficio_entrada = models.CharField(max_length=120, blank=True, null=True)
+    autorizacao_judicial = models.CharField(max_length=200, blank=True, null=True)
+    
+    
+    
+    
+    
+    class Meta:
+        verbose_name = ("Solicitacao")
+        verbose_name_plural = ("Solicitacoes")
+
+    def __str__(self):
+        return str(self.id)  
 
 class Celular(models.Model):
 
@@ -28,6 +55,7 @@ class Celular(models.Model):
     imei_dispositivo = models.CharField(max_length=50)
     obs_entrada = models.CharField(max_length=500, blank=True, null=True)
     lacre_entrada = models.CharField(max_length=50,blank=True, null=True)
+    solicitacao = models.ForeignKey(Solicitacao, related_name="celular", on_delete=models.CASCADE)
     
     
 
@@ -54,34 +82,6 @@ class Nuvem(models.Model):
         return str(self.id)+' nuvem'
 
 
-class Solicitacao(models.Model):
-
-    tipo_choices = [
-        ('Nuvem', 'Nuvem'),
-        ('Celular', 'Celular'),
-    ]
-    
-    tipo = models.CharField( choices=tipo_choices, max_length=50)
-    operacao = models.ForeignKey(Operacao, on_delete=models.CASCADE, related_name='solicitacao')
-    situacao = models.CharField(max_length=50)
-    data_entrada = models.DateField(default=timezone.now)
-    ipl = models.CharField(max_length=50, blank=True, null=True)
-    referencia = models.CharField(max_length=120, blank=True, null=True)
-    Solicitante = models.ForeignKey(User, on_delete=models.CASCADE, related_name='solicitacoes', blank=True, null = True)
-    oficio_entrada = models.CharField(max_length=120, blank=True, null=True)
-    autorizacao_judicial = models.CharField(max_length=200, blank=True, null=True)
-    celular = models.ForeignKey(Celular, on_delete=models.DO_NOTHING, blank=True, null=True, related_name='solicitacao')
-    nuvem = models.ForeignKey(Nuvem, on_delete=models.DO_NOTHING, blank=True, null=True, related_name='solicitacao')
-    
-    
-    
-    
-    class Meta:
-        verbose_name = ("Solicitacao")
-        verbose_name_plural = ("Solicitacoes")
-
-    def __str__(self):
-        return str(self.id)   
 
 class Resposta(models.Model):
 

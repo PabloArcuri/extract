@@ -133,11 +133,17 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+<<<<<<< HEAD
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
     'PAGE_SIZE': 10
+=======
+    'DEFAULT_AUTHENTICATION_CLASSES': ( 
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+>>>>>>> 74d39165b92f301d30209a724ad68f7c85ecb5a1
 }
 
 SIMPLE_JWT = {

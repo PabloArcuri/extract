@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class SolicitacaoSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Solicitacao
         fields = '__all__'
@@ -26,6 +27,7 @@ class OperacaoSerializer(serializers.ModelSerializer):
     criador = CriadorSerializer(many=False, read_only=True)
     
     class Meta:
+        
         model = Operacao
         
         fields = [
