@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from .models import Operacao, Solicitacao, Celular, Nuvem, Resposta
 
 from .serializer import *
@@ -11,16 +12,17 @@ from .serializer import *
 class OpsViewSet(viewsets.ModelViewSet):
     queryset = Operacao.objects.all()
     serializer_class = OperacaoSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def perform_create(self, serializer):
+        integrantes = [self.request.user]
+        serializer.save(criador = self.request.user, integrantes=integrantes)
 
-    @action(detail=True, methods = ['get'])
-    def solicitacoes(self, request, pk=None, *args, **kwargs):
-        queryset = Solicitacao.objects.filter(pk=pk)
-        self.serializer_class = OperacaoSerializer
-        serializer = self.get_serializer(queryset, many=True)
-        
-        return Response(serializer.data) 
-    
-    
+    # def perform_update(self, serializer):
+    #     integrantes = serializer.validated_data.get('integrantes')
+    #     integrantes.append(self.request.user)
+    #     serializer.save(integrantes=integrantes)
+   
    
         
 class SolicitacaoViewSet(viewsets.ModelViewSet):
