@@ -3,12 +3,15 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+
 class Operacao(models.Model):
 
     nome = models.CharField( max_length=150)
     data_criacao = models.DateField(auto_now_add=True)
     criador = models.ForeignKey(User, on_delete=models.CASCADE, related_name='operacao_criador')
     integrantes = models.ManyToManyField(User, related_name='operacao_integrantes')
+    
     class Meta:
         verbose_name = ("Operacao")
         verbose_name_plural = ("Operacoes")

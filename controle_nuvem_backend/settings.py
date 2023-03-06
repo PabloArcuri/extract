@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     #'corsheaders',
-    #'rest_framework_simplejwt',
+    'rest_framework_simplejwt',
     'api',
 ]
 
@@ -135,9 +135,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ( 
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated',
+        ),
 }
 
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes =60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
