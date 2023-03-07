@@ -2,10 +2,6 @@ from urllib import request
 from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
-<<<<<<< HEAD
-from rest_framework.decorators import action
-=======
->>>>>>> 74d39165b92f301d30209a724ad68f7c85ecb5a1
 from rest_framework.permissions import IsAuthenticated
 from .models import Operacao, Solicitacao, Celular, Nuvem, Resposta
 
@@ -20,17 +16,8 @@ class OpsViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         integrantes = [self.request.user]
         serializer.save(criador = self.request.user, integrantes=integrantes)
-<<<<<<< HEAD
-
-    # def perform_update(self, serializer):
-    #     integrantes = serializer.validated_data.get('integrantes')
-    #     integrantes.append(self.request.user)
-    #     serializer.save(integrantes=integrantes)
-   
-=======
     def get_queryset(self):
         return Operacao.objects.filter(integrantes = self.request.user)      
->>>>>>> 74d39165b92f301d30209a724ad68f7c85ecb5a1
    
         
 class SolicitacaoViewSet(viewsets.ModelViewSet):
