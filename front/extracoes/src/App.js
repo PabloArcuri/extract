@@ -1,14 +1,13 @@
-import Main from "./components/main";
-import UserProvider from "./contexts/user";
+import { BrowserRouter } from 'react-router-dom'
+import RoutesApp from "./routes";
 
 function App() {
   
   return (
-    <UserProvider>
-      <div className="App">
-        <Main />
-      </div>
-    </UserProvider>
+    <BrowserRouter>
+      <RoutesApp/>
+    </BrowserRouter>
+    
   );
 }
 

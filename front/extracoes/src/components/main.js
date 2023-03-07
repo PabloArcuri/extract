@@ -1,23 +1,13 @@
-import React, { useContext, useState } from "react";
-
-import { UserContext } from "../contexts/user";
-
+import React from "react";
 
 function Main() {
-    const { alunos, setAlunos } = useContext(UserContext)
-    const {btnview, setBntview} = useState('false')
-
-    function edita(e){
-        setAlunos(e.target.value);
-    }
-    
+   
     return ( 
         <div>
-            <input type="text" value={alunos} onChange= {edita}/> 
-            <button >  Salvar </button>
+
         </div>
      );
-     
+  
      
 }
 
