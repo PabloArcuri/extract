@@ -6,7 +6,9 @@ function Home() {
       <div>
         <h1>
             Controle de Extrações/Nuvens
+            
         </h1>
+      
         </div>
     );
   }
