@@ -1,16 +1,33 @@
 import './index.css'
+import { UserContext } from '../../contexts/user';
+import { useContext } from 'react';
+
 
 function Home() {
-  
+  const { token, setToken } = useContext(UserContext);
+
+  if (token === '') {
     return (
+
       <div>
-        <h1>
-            Controle de Extrações/Nuvens
-            
+        <h1> Usuário não logado!</h1>
+      </div>
+    //redirect to login page
+    
+    );
+  } else {
+
+    return (
+
+      <div>
+        <h1 className='title'>
+          Operações do token {token}
+
         </h1>
-      
-        </div>
+
+      </div>
     );
   }
-  
-  export default Home;
+}
+
+export default Home;

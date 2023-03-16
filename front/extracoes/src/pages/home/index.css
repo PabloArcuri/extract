@@ -1,0 +1,66 @@
+.container{
+    margin: 0 auto;
+    width:100%;
+    max-width: 600px;
+    border: 1px solid;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.loginForm{
+    width: 100%;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+}
+
+.loginForm input{
+    width: 90%;
+    justify-content: center; 
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;   
+}
+.loginForm button{
+    width: 90%;
+    justify-content: center; 
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;   
+    font-size: 24px;
+    color: dimgray;
+    font-weight: bold;
+    border: 0;
+}
+.loginForm button:hover{
+    color: aliceblue;
+    background-color: dimgray;
+    border: 1px solid;
+}
+
+.subDiv{
+    width: 100%;
+    margin: 12px;
+    padding: 12px 32px;
+    align-items: right;
+    text-align: right;
+    
+}
+
+.subDiv h3{
+    font-size: 16px;
+    color: gray;
+    
+}
+.link{
+    text-decoration: none;
+    color: gray;
+}

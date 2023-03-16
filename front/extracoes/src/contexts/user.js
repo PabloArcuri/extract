@@ -3,10 +3,10 @@ import { useState, createContext } from "react";
 export const UserContext = createContext({});
 
 function UserProvider({children}){
-    const [alunos, setAlunos] = useState('Sujeito');
+    const [token, setToken] = useState('');
     
     return(
-        <UserContext.Provider value={{ alunos, setAlunos }}>
+        <UserContext.Provider value={{ token, setToken }}>
             {children}
         </UserContext.Provider>
     )
