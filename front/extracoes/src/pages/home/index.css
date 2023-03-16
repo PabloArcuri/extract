@@ -1,5 +1,7 @@
 .container{
     margin: 0 auto;
+    margin-top: 2rem;
+    border-radius: 16px;
     width:100%;
     max-width: 600px;
     border: 1px solid;
@@ -64,3 +66,14 @@
     text-decoration: none;
     color: gray;
 }
+
+.title{
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(236, 234, 234);
+}
+.subTitle{
+    font-size: 16px;
+    color: rgb(163, 161, 161);
+    font-weight: 400;
+        }

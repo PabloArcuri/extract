@@ -44,10 +44,10 @@ function Login() {
 return (
     <div className="container">
         <h1 className='title'>
-            Faça seu login
+            Controle de extrações
 
         </h1>
-        <h2 className='subtitle'> Preencha seus dados</h2>
+        <h2 className='subTitle'> Faça seu login para acessar</h2>
         <form className='loginForm' onSubmit={handleLogin}>
             <input type="text" name="username" placeholder="Username" value={username} required
                 onChange={(e) => setUsername(e.target.value)} />
