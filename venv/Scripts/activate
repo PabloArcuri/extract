@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\pablo.pamf\Documents\Desenvolvimento\Controle_Nuvem\venv"
+VIRTUAL_ENV="C:\Users\pablo.pamf\OneDrive - Polícia Federal\Documentos\Desenvolvimento\extract\extract\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
